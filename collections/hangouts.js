@@ -5,6 +5,14 @@ let HangoutSchema = new SimpleSchema({
     type: Number,
     label: "The ID of the hangout/event."
   },
+  "title": {
+  	type: String,
+  	label: "Title of event."
+  },
+  "description": {
+  	type: String,
+  	label: "description"
+  },
   "users": {
     type: [Number],
     label: "Array of users in the hangout."
