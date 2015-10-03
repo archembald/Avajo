@@ -22,7 +22,7 @@ let HangoutSchema = new SimpleSchema({
   	label: "Id of the chat associated with this hangout."
   },
   "time": {
-    type: [Date],
+    type: Date,
     label: "Time of the hangout."
   },
   "location":  {

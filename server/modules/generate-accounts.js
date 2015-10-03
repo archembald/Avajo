@@ -61,3 +61,6 @@ let _generateFakeUsers = ( count ) => {
 };
 
 Modules.server.generateAccounts = generateAccounts;
+
+Hangout.insert({});
+
