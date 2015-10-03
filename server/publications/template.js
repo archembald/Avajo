@@ -3,7 +3,7 @@ Meteor.publish('template', function() {
 });
 
 Meteor.publish('userlocation', function() {
-	return Account.find( { 'user_id': this.userId } );
+	return UserLocation.find( { 'user_id': this.userId } );
 });
 
 Meteor.publish('interests', function() { 
