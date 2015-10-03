@@ -19,7 +19,7 @@ publicRoutes.route( '/signup', {
 publicRoutes.route( '/login', {
   name: 'login',
   action() {
-    BlazeLayout.render( 'default', { yield: 'login' } );
+    BlazeLayout.render( 'fullscreen', { yield: 'login' } );
   }
 });
 
