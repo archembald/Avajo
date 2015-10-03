@@ -6,6 +6,6 @@ Template.hangouts.helpers({
     return Hangout.find();
   },
   userlocations: function(){
-    return Userlocation.find();
+    return UserLocation.find();
   }
 });
