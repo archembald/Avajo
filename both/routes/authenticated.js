@@ -16,13 +16,6 @@ authenticatedRoutes.route( '/', {
   }
 });
 
-authenticatedRoutes.route( '/dashboard', {
-  name: 'dashboard',
-  action() {
-    BlazeLayout.render( 'default', { yield: 'dashboard' } );
-  }
-});
-
 authenticatedRoutes.route( '/hangouts', {
   name: 'hangouts',
   action() {
