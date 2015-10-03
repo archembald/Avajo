@@ -17,5 +17,3 @@ Meteor.publish('messages', function(chatId){
 Meteor.publish('hangout', function(){
 	return Hangout.find( {'users': this.userId } );
 });
-
-
