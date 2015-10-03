@@ -2,7 +2,7 @@ UserLocation = new Meteor.Collection( 'userlocation' );
 
 let UserLocationSchema = new SimpleSchema({
   "user_id": {
-    type: Number,
+    type: String,
     label: "The user id of the account owner."
   },
   "location":  {

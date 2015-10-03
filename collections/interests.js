@@ -2,7 +2,7 @@ Interest = new Meteor.Collection( 'interest' );
 
 let InterestSchema = new SimpleSchema({
   "user_id": {
-    type: Number,
+    type: String,
     label: "The ID of the user who has these interests."
   },
   "interests": {
