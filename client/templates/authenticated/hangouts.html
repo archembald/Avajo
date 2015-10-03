@@ -1,0 +1,12 @@
+<template name="hangouts">
+  <h3>Hangouts</h3>
+  <div class="friendList">
+  <ul>
+    {{#each hangouts}}
+      <li>
+        {{name}}: {{description}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+</template>

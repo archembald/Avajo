@@ -22,3 +22,10 @@ authenticatedRoutes.route( '/dashboard', {
     BlazeLayout.render( 'default', { yield: 'dashboard' } );
   }
 });
+
+authenticatedRoutes.route( '/hangouts', {
+  name: 'hangouts',
+  action() {
+    BlazeLayout.render( 'default', { yield: 'hangouts' } );
+  }
+});
