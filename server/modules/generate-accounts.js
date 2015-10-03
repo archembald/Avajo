@@ -54,7 +54,7 @@ let _createUser = ( user ) => {
   	location: 
   			{
   				type: 'Point',
-  				coordinate: [45, 64]
+  				coordinates: [45, 64]
   			}
   });
   
