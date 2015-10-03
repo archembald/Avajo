@@ -10,8 +10,8 @@ Meteor.publish('interests', function() {
 	return Interest.find( { 'user_id': this.userId } );
 }); 
 
-Meteor.publish('messages', function(chatId){
-	return Message.find( { 'chat_id': chatId } );
+Meteor.publish('messages', function(hangoutId){
+	return Message.find( { 'hangout_id': hangoutId } );
 });
 
 Meteor.publish('hangout', function(){

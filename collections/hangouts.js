@@ -1,5 +1,11 @@
 Hangout = new Meteor.Collection( 'hangout' );
 
+Hangout.allow({
+  insert: () => true,
+  update: () => true, //So that users may leave the hangout
+  remove: () => false
+});
+
 let HangoutSchema = new SimpleSchema({
   "title": {
   	type: String,
@@ -12,11 +18,6 @@ let HangoutSchema = new SimpleSchema({
   "users": {
     type: [String],
     label: "Array of users in the hangout."
-  },
-  "chat_id": {
-  	type: String,
-  	label: "Id of the chat associated with this hangout.",
-  	optional: true
   },
   "time": {
     type: Date,
