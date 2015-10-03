@@ -13,6 +13,10 @@ let HangoutSchema = new SimpleSchema({
     type: [String],
     label: "Array of users in the hangout."
   },
+  "waitlist" : {
+    type: [String],
+    label: "Array of users awaiting entry to event."
+  },
   "chat_id": {
   	type: String,
   	label: "Id of the chat associated with this hangout.",
