@@ -1,10 +1,6 @@
 Hangout = new Meteor.Collection( 'hangout' );
 
 let HangoutSchema = new SimpleSchema({
-  "hangout_id": {
-    type: Number,
-    label: "The ID of the hangout/event."
-  },
   "title": {
   	type: String,
   	label: "Title of event."
@@ -19,7 +15,8 @@ let HangoutSchema = new SimpleSchema({
   },
   "chat_id": {
   	type: Number,
-  	label: "Id of the chat associated with this hangout."
+  	label: "Id of the chat associated with this hangout.",
+  	optional: true
   },
   "time": {
     type: Date,

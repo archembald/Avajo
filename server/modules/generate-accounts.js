@@ -7,13 +7,15 @@ let administrators = [
 ];
 
 let generateAccounts = () => {
-  let fakeUserCount = 5,
-      usersExist    = _checkIfAccountsExist( administrators.length + fakeUserCount );
+  let fakeUserCount = 2,
+  usersExist    = _checkIfAccountsExist( administrators.length + fakeUserCount );
 
   if ( !usersExist ) {
     _createUsers( administrators );
-    _createUsers( _generateFakeUsers( fakeUserCount ) );
+    _createUsers( _generateFakeUsers( ) );
   }
+
+  
 };
 
 let _checkIfAccountsExist = ( count ) => {
@@ -44,23 +46,43 @@ let _createUser = ( user ) => {
       name: user.name
     }
   });
+  
+  var id = Meteor.users.findOne( { 'emails.address': user.email } )._id;
+  
+  UserLocation.insert({
+  	user_id: id,
+  	location: 
+  			{
+  				type: 'Point',
+  				coordinate: [45, 64]
+  			}
+  });
+  
+  Interest.insert({
+  	user_id: id,
+  	interests: ['Meteor', 'Finance']
+  });
+  
 };
 
-let _generateFakeUsers = ( count ) => {
+let _generateFakeUsers = ( ) => {
   let users = [];
 
-  for ( let i = 0; i < count; i++ ) {
-    users.push({
-      name: { first: faker.name.firstName(), last: faker.name.lastName() },
-      email: faker.internet.email(),
+	users.push({
+      name: { first: "Benjamin", last: "La Schiazza" },
+      email: "ben@ben.com",
       password: 'password'
     });
-  }
-
+    
+    users.push({
+      name: { first: "John", last: "Doe" },
+      email: "john@john.com",
+      password: 'password'
+    });
+  
   return users;
 };
 
 Modules.server.generateAccounts = generateAccounts;
 
-Hangout.insert({});
 

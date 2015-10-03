@@ -1,6 +1,6 @@
-Account = new Meteor.Collection( 'accounts' );
+UserLocation = new Meteor.Collection( 'userlocation' );
 
-let AccountSchema = new SimpleSchema({
+let UserLocationSchema = new SimpleSchema({
   "user_id": {
     type: Number,
     label: "The user id of the account owner."
@@ -22,4 +22,4 @@ let AccountSchema = new SimpleSchema({
   }
 });
 
-Account.attachSchema( AccountSchema );
+UserLocation.attachSchema( UserLocationSchema );
