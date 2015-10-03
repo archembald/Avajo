@@ -1,7 +1,11 @@
 Meteor.subscribe("hangout");
+Meteor.subscribe("userlocation");
 
 Template.hangouts.helpers({
-  hangounts: function(){
+  hangouts: function(){
     return Hangout.find();
+  },
+  userlocations: function(){
+    return Userlocation.find();
   }
 });
