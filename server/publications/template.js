@@ -17,3 +17,14 @@ Meteor.publish('messages', function(hangoutId){
 Meteor.publish('hangout', function(){
 	return Hangout.find( {'users': this.userId } );
 });
+
+Meteor.publish('localhangouts', function(){
+	var userLoc = UserLocation.find( { 'user_id':this.userId } );
+	return Hangout.find( { location: 
+		{
+		$near: { $geometry: userLoc.location,
+				 $maxDistance: 1000 //distance in meters
+				}
+		} 
+	});
+});
