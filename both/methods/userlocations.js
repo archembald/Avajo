@@ -1,5 +1,21 @@
 Meteor.methods({
-	updateLocation: function(lat, lon) {
+	addUserLocation: function(lon, lat) {
+		if(! Meteor.userId()) {
+			throw new Meteor.Error("not-authorized");
+		}
+		check(lon, Number);
+		check(lat, Number);
+		
+		UserLocation.insert( 
+		{
+			user_id: Meteor.userId(),
+			location: {
+				type: "Point",
+				coordinates: [lon, lat]
+			}
+		});
+	},
+	updateLocation: function(lon, lat) {
 		check(lat, Number);
 		check(lon, Number);
 		if(! Meteor.userId()) {
@@ -17,7 +33,7 @@ Meteor.methods({
 				$set: {
 					location: { 
 						type: "Point",
-						coordinates: [lat, lon] 
+						coordinates: [lon, lat] 
 					}
 				}
 			});
