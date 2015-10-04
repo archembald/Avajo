@@ -4,13 +4,20 @@
     <ul>
       {{#each hangouts}}
         <li>
-          {{name}}: {{description}}
+          {{title}}: {{description}}
         </li>
       {{/each}}
     </ul>
   </div>
-
-  {{> quickForm collection="Hangout" id="insertHangoutsForm" type="insert"}}
+  
+  <div class="well">
+    {{#autoForm collection="Hangout" id="insertHangoutsForm" type="method" meteormethod="createHangout"}}
+      {{> afQuickField name='title' }}
+      {{> afQuickField name='description' }}
+      {{> afQuickField name='time' }}
+      <input type="submit" class="btn btn-primary" value="Create" />
+    {{/autoForm}}
+  </div>
 
   <h3>User locations</h3>
   <div class="friendList">

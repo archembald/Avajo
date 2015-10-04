@@ -1,5 +1,11 @@
 Hangout = new Meteor.Collection( 'hangout' );
 
+Hangout.allow({
+  insert: () => true,
+  update: () => false,
+  remove: () => false
+});
+
 let HangoutSchema = new SimpleSchema({
   "title": {
   	type: String,
