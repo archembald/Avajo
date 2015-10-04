@@ -1,5 +1,11 @@
 Interest = new Meteor.Collection( 'interest' );
 
+Interest.allow({
+  insert: () => true,
+  update: () => true,
+  remove: () => false
+});
+
 let InterestSchema = new SimpleSchema({
   "user_id": {
     type: String,

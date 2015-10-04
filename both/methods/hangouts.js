@@ -10,5 +10,21 @@ Meteor.methods({
 		} catch (exception) {
 			return exception;
 		}
+	},
+	leaveHangout: function(hangoutId) 
+	{
+		check(hangoutId, String);
+		Hangout.update({_id: hangoutId}, {$pull: {users: Meteor.user()}});
+	},
+	changeLocation: function(hangoutId, lon, lat)
+	{
+		check(hangoutId, String);
+		check(lat, Number);
+		check(lon, Number);
+		Hangout.update({_id: hangoutId}, 
+			{location: {
+					type: "Point",
+					coordinates: [lon, lat]
+		}});
 	}
 });

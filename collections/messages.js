@@ -1,13 +1,27 @@
 Message = new Meteor.Collection( 'message' );
 
+Message.allow({
+  insert: () => true,
+  update: () => false,
+  remove: () => false
+});
+
 let MessageSchema = new SimpleSchema({
-  "user_ids": {
-    type: [String],
-    label: "The ids of users that are involved in the chat."
+  "user_id": {
+    type: String,
+    label: "The user who sent the chat"
   },
-  "messages": {
-    type: [String],
-    label: "Messages in the chat."
+  "hangout_id": {
+  	type: String,
+  	label: "Hangout Id for this message"
+  },
+  "content": {
+    type: String,
+    label: "Message"
+  },
+  "time": {
+  	type: Date,
+  	label: "Time is was sent"
   }
 });
 
