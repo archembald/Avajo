@@ -2,7 +2,7 @@ Hangout = new Meteor.Collection( 'hangout' );
 
 Hangout.allow({
   insert: () => true,
-  update: () => false,
+  update: () => true, //So that users may leave the hangout
   remove: () => false
 });
 
@@ -18,6 +18,10 @@ let HangoutSchema = new SimpleSchema({
   "users": {
     type: [String],
     label: "Array of users in the hangout."
+  },
+  "waitlist" : {
+    type: [String],
+    label: "Array of users awaiting entry to event."
   },
   "chat_id": {
   	type: String,

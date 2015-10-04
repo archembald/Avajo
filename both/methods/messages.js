@@ -1,21 +1,15 @@
 Meteor.methods({
-	addMessage: function(chat_id, text) {
+	addMessage: function(h_id, message) {
 		if(! Meteor.userId()) {
 			throw new Meteor.Error("not-authorized");
 		}
-
-		var message = Message.findOne( {user_ids: Meteor.userId() });
-		if(! message) {
-			throw new Meteor.Error("not-authorized");
-		}
-
-		Message.update( 
-			{user_ids: Meteor.userId() },
-			{
-				$push: {
-					messages: text
-				}
-			});
-
+		
+		Message.insert( 
+		{
+			user_id: Meteor.userId(),
+			hangout_id: h_id,
+			content: message,
+			time: new Date()
+		});
 	}
 });
